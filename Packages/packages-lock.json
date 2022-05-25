@@ -185,6 +185,17 @@
       },
       "url": "https://packages.unity.com"
     },
+    "io.extendreality.tilia.camerarigs.spatialsimulator.unity": {
+      "version": "2.0.7",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.extendreality.zinnia.unity": "2.2.0",
+        "io.extendreality.tilia.utilities.shaders.unity": "1.3.0",
+        "io.extendreality.tilia.input.unityinputmanager": "2.0.3"
+      },
+      "url": "https://registry.npmjs.org"
+    },
     "io.extendreality.tilia.camerarigs.trackedalias.unity": {
       "version": "2.0.2",
       "depth": 0,
@@ -222,6 +233,15 @@
       "dependencies": {
         "io.extendreality.zinnia.unity": "2.1.0",
         "io.extendreality.tilia.indicators.objectpointers.unity": "2.1.2"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "io.extendreality.tilia.input.unityinputmanager": {
+      "version": "2.0.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "io.extendreality.zinnia.unity": "2.2.0"
       },
       "url": "https://registry.npmjs.org"
     },
@@ -293,7 +313,7 @@
       "url": "https://registry.npmjs.org"
     },
     "io.extendreality.zinnia.unity": {
-      "version": "2.1.0",
+      "version": "2.2.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
