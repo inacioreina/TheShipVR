@@ -6,27 +6,52 @@ using UnityEngine;
 
 public class KeypadController : MonoBehaviour
 {
-    /// <summary>Code that is the answer to the puzzle.</summary> 
-    [SerializeField]
+    ///<summary>Code that is the answer to the puzzle.</summary> 
     private string answerCode = string.Empty;
 
-    /// <summary>Code that the player inputs into the keypad.</summary>
+    ///<summary>Code that the player inputs into the keypad.</summary>
     private string inputCode = string.Empty;
+
+    //flag to prevent interaction with the keypad after puzzle complete
+    private bool puzzleClear = false;
 
 
     public void GetKeyPress(string key)
     {
-        switch (key)
+        //if puzzle isn't clear yet get input
+        if (!puzzleClear)
         {
-            case "Submit": //enter code
-                SubmitCode();
-                break;
-            case "Delete": //delete code
-                DeleteCode();
-                break;
-            default: //input number
-                AddNumberToCode(key);
-                break;
+            switch (key)
+            {
+                case "Delete": //delete code
+                    DeleteCode();
+                    break;
+                default: //input number
+                    AddNumberToCode(key);
+                    break;
+            }
+        }
+    }
+
+    private void DeleteCode()
+    {
+        inputCode = string.Empty;
+
+        UpdateCodeUI();
+
+        Debug.Log("Code Deleted.");
+    }
+
+    private void AddNumberToCode(string key)
+    {
+        inputCode += key;
+
+        UpdateCodeUI();
+        
+        //submit code if length is same length of answer code
+        if (inputCode.Length == answerCode.Length)
+        {
+            SubmitCode();
         }
     }
 
@@ -40,21 +65,12 @@ public class KeypadController : MonoBehaviour
         else //incorrect
         {
             Debug.Log("Incorrect!");
+            DeleteCode();
         }
     }
 
-    private void DeleteCode()
+    private void UpdateCodeUI()
     {
-        inputCode = string.Empty;
-        Debug.Log("Code Deleted.");
-    }
-
-    private void AddNumberToCode(string key)
-    {
-        if (inputCode.Length < 4)
-        {
-            inputCode += key;
-            Debug.Log($"Code: {inputCode}");
-        }
+        Debug.Log($"Code: {inputCode}");
     }
 }

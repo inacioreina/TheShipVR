@@ -29,6 +29,7 @@ public class KeyButtonController : MonoBehaviour
     }
 
 
+    //set the key ID based on gameobject name
     private void SetKeyButtonID()
     {
         keyButtonID = gameObject.name.Replace("Key", string.Empty);
