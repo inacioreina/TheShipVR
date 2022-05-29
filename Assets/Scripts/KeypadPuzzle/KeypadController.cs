@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 
 public class KeypadController : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshPro inputCodeUI;
+
     ///<summary>Code that is the answer to the puzzle.</summary> 
     private string answerCode = string.Empty;
 
@@ -14,6 +18,12 @@ public class KeypadController : MonoBehaviour
 
     //flag to prevent interaction with the keypad after puzzle complete
     private bool puzzleClear = false;
+
+
+    private void Start()
+    {
+        DeleteCode();
+    }
 
 
     public void GetKeyPress(string key)
@@ -72,5 +82,7 @@ public class KeypadController : MonoBehaviour
     private void UpdateCodeUI()
     {
         Debug.Log($"Code: {inputCode}");
+
+        inputCodeUI.text = inputCode;
     }
 }
