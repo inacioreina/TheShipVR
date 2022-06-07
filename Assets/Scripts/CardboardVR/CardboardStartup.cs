@@ -18,6 +18,7 @@
 
 using Google.XR.Cardboard;
 using UnityEngine;
+using UnityEngine.XR.Management;
 
 /// <summary>
 /// Initializes Cardboard XR Plugin.
@@ -67,6 +68,8 @@ public class CardboardStartup : MonoBehaviour
             Api.ReloadDeviceParams();
         }
 
-        Api.UpdateScreenParams();
+        #if !UNITY_EDITOR
+            Api.UpdateScreenParams();
+        #endif
     }
 }

@@ -18,6 +18,7 @@
 
 using System.Collections;
 using UnityEngine;
+using Google.XR.Cardboard;
 
 /// <summary>
 /// Sends messages to gazed GameObject.
@@ -25,38 +26,38 @@ using UnityEngine;
 public class CameraPointer : MonoBehaviour
 {
     private const float _maxDistance = 10;
-    private GameObject _gazedAtObject = null;
 
-    /// <summary>
-    /// Update is called once per frame.
-    /// </summary>
+    /// <summary>Game object that is being gazed.</summary>
+    private GameObject gazedObject = null;
+
+
     public void Update()
     {
-        // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed
-        // at.
+        // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed at.
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance))
         {
-            // GameObject detected in front of the camera.
-            if (_gazedAtObject != hit.transform.gameObject)
+            // Interactable GameObject detected in front of the camera.
+            if (hit.transform.gameObject.layer == 6 && hit.transform.gameObject != gazedObject)
             {
                 // New GameObject.
-                _gazedAtObject?.SendMessage("OnPointerExit");
-                _gazedAtObject = hit.transform.gameObject;
-                _gazedAtObject.SendMessage("OnPointerEnter");
+                gazedObject?.SendMessage("OnPointerExit");
+                gazedObject = hit.transform.gameObject;
+                gazedObject.SendMessage("OnPointerEnter");
+                Debug.Log($"Gazed Object: {gazedObject.name}");
             }
         }
         else
         {
             // No GameObject detected in front of the camera.
-            _gazedAtObject?.SendMessage("OnPointerExit");
-            _gazedAtObject = null;
+            gazedObject?.SendMessage("OnPointerExit");
+            gazedObject = null;
         }
 
         // Checks for screen touches.
-        if (Google.XR.Cardboard.Api.IsTriggerPressed)
+        if (Api.IsTriggerPressed)
         {
-            _gazedAtObject?.SendMessage("OnPointerClick");
+            gazedObject?.SendMessage("OnPointerClick");
         }
     }
 }
