@@ -28,7 +28,7 @@ public class CameraPointer : MonoBehaviour
     private const float _maxDistance = 10;
 
     /// <summary>Game object that is being gazed.</summary>
-    private GameObject gazedObject = null;
+    private InteractableController gazedObject = null;
 
 
     public void Update()
@@ -37,27 +37,31 @@ public class CameraPointer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance))
         {
+            GameObject hitObject = hit.transform.gameObject;
+
+            hitObject.TryGetComponent(out InteractableController interactable);
+
             // Interactable GameObject detected in front of the camera.
-            if (hit.transform.gameObject.layer == 6 && hit.transform.gameObject != gazedObject)
+            if (gazedObject != interactable)
             {
                 // New GameObject.
-                gazedObject?.SendMessage("OnPointerExit");
-                gazedObject = hit.transform.gameObject;
-                gazedObject.SendMessage("OnPointerEnter");
-                Debug.Log($"Gazed Object: {gazedObject.name}");
+                gazedObject?.OnGazeExit();
+                gazedObject = interactable;
+                gazedObject.OnGazeEnter();
+                Debug.Log($"New Gazed Object: {gazedObject.gameObject.name}");
             }
         }
         else
         {
             // No GameObject detected in front of the camera.
-            gazedObject?.SendMessage("OnPointerExit");
+            gazedObject?.OnGazeExit();
             gazedObject = null;
         }
 
         // Checks for screen touches.
         if (Api.IsTriggerPressed)
         {
-            gazedObject?.SendMessage("OnPointerClick");
+            gazedObject?.OnGazeEnter();
         }
     }
 }

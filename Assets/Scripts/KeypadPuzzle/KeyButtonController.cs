@@ -6,14 +6,18 @@ public class KeyButtonController : MonoBehaviour
 {
     private string keyButtonID;
 
+    private MeshRenderer keyMeshRenderer;
+
     delegate void InputCode(string key);
     InputCode KeyButtonPress;
 
 
 
-    private void Start()
+    private void Awake()
     {
         SetKeyButtonID();
+
+        SetMeshRenderer();
 
         SetDelegates();
     }
@@ -35,6 +39,17 @@ public class KeyButtonController : MonoBehaviour
         keyButtonID = gameObject.name;
 
         Debug.Log($"Key {gameObject.name} ID: {keyButtonID}");
+    }
+
+    private void SetMeshRenderer()
+    {
+        keyMeshRenderer = GetComponent<MeshRenderer>();
+    }
+
+
+    public void ChangeKeyMaterial(Material material)
+    {
+        keyMeshRenderer.materials[0] = material;
     }
 
 
