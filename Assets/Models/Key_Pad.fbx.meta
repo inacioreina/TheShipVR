@@ -3,7 +3,32 @@ guid: cf9093103a8bff04d89b8e96c0286408
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Borracha
+    second: {fileID: 2100000, guid: 83541f19c220ffb499ac4743b8cffed6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Ecr\xE3"
+    second: {fileID: 2100000, guid: 38ea658699e25dc4ab771112a60921a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Indicador Branco
+    second: {fileID: 2100000, guid: a89d0c3f11c62ff4fb7df694e4ae97c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastico Cinza
+    second: {fileID: 2100000, guid: 4b30a66f35cafd94da28365403cfbc99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastico Gloss
+    second: {fileID: 2100000, guid: 2e28fba71da4a86459c32c6fd6fad316, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +113,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.049999997
+    globalScale: 5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

@@ -3,7 +3,27 @@ guid: 1782520dff21f7046ba92c79339b1537
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Borracha
+    second: {fileID: 2100000, guid: 83541f19c220ffb499ac4743b8cffed6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal Polido
+    second: {fileID: 2100000, guid: af32c18e567d2844d87fa25d12d49722, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastico Gloss
+    second: {fileID: 2100000, guid: 2e28fba71da4a86459c32c6fd6fad316, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vidro
+    second: {fileID: 2100000, guid: 2af6d3c386b2da242858d31b4dcc93c2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
