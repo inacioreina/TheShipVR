@@ -55,13 +55,14 @@ public class CameraPointer : MonoBehaviour
         {
             // No GameObject detected in front of the camera.
             gazedObject?.OnGazeExit();
-            gazedObject = null;
+            gazedObject = null;            
         }
 
         // Checks for screen touches.
         if (Api.IsTriggerPressed)
         {
-            gazedObject?.OnGazeEnter();
+            gazedObject?.OnInteraction();
+            Debug.Log("Trigger Pressed");
         }
     }
 }

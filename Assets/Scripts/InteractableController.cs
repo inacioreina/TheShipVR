@@ -2,8 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum InteractableType
+{
+    KeypadButton,
+    Planet,
+    PlanetButton,
+    Enemy
+}
+
 public class InteractableController : MonoBehaviour
 {
+    [SerializeField]
+    private InteractableType interactableType;
+
     [SerializeField]
     private Material selectedMaterial;
 
@@ -31,6 +42,21 @@ public class InteractableController : MonoBehaviour
 
     public void OnInteraction()
     {
-        Debug.Log("Game object {gameobject.name} interacted.");
+        switch (interactableType)
+        {
+            case InteractableType.KeypadButton:
+                gameObject.GetComponent<KeyButtonController>().ButtonPress();
+                break;
+            case InteractableType.Planet:
+                break;
+            case InteractableType.PlanetButton:
+                break;
+            case InteractableType.Enemy:
+                break;
+            default:
+                break;
+        }
+
+        Debug.Log($"Game object {gameObject.name} interacted.");
     }
 }
