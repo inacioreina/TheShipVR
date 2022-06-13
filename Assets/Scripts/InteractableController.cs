@@ -18,8 +18,7 @@ public class InteractableController : MonoBehaviour
     [SerializeField]
     private Material selectedMaterial;
 
-    [SerializeField]
-    private Material UnselectedMaterial;
+    private Material unselectedMaterial;
 
     private MeshRenderer meshRenderer;
 
@@ -27,6 +26,7 @@ public class InteractableController : MonoBehaviour
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        unselectedMaterial = meshRenderer.material;
     }
 
 
@@ -37,7 +37,7 @@ public class InteractableController : MonoBehaviour
 
     public void OnGazeExit()
     {
-        meshRenderer.material = UnselectedMaterial;
+        meshRenderer.material = unselectedMaterial;
     }
 
     public void OnInteraction()
@@ -48,10 +48,13 @@ public class InteractableController : MonoBehaviour
                 gameObject.GetComponent<KeyButtonController>().ButtonPress();
                 break;
             case InteractableType.Planet:
+                //write here the reference to the function that will interact with planet
                 break;
             case InteractableType.PlanetButton:
+                //write here the reference to the function that will interact with planet button
                 break;
             case InteractableType.Enemy:
+                //write here the reference to the function that will interact with enemy
                 break;
             default:
                 break;
