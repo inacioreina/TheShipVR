@@ -19,8 +19,6 @@ public class KeypadController : MonoBehaviour
     ///<summary>Flag to prevent interaction with the keypad after puzzle complete</summary>
     private bool puzzleClear = false;
 
-    private DoorController doorController;
-
 
     private void Start()
     {
@@ -76,10 +74,7 @@ public class KeypadController : MonoBehaviour
 
             Debug.Log("Correct!");
 
-            if (doorController != null)
-                doorController = GameObject.FindGameObjectWithTag("KeypadDoor").GetComponent<DoorController>();
-
-            doorController.OpenDoor();
+            GameObject.FindGameObjectWithTag("KeypadDoor").GetComponent<DoorController>().OpenDoor();
         }
         else //incorrect
         {
