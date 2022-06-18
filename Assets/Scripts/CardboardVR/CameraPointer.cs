@@ -20,18 +20,38 @@ using System.Collections;
 using UnityEngine;
 using Google.XR.Cardboard;
 
-/// <summary>
-/// Sends messages to gazed GameObject.
-/// </summary>
+enum ActionType
+{
+    None,
+    Teleport,
+    Interaction
+}
+
 public class CameraPointer : MonoBehaviour
 {
     private const float _maxDistance = 10;
+
+    private Transform player;
+
+    private GameObject pointer;
+
+    private ActionType currentAction = ActionType.None;
+
+    /// <summary> Pointer to display teleport target. </summary>
+    private Vector3 pointerPosition = Vector3.zero;
 
     /// <summary>Game object that is being gazed.</summary>
     private InteractableController gazedObject = null;
 
 
-    public void Update()
+    private void Awake()
+    {
+        player = transform.parent;
+
+        pointer = player.GetChild(1).gameObject;
+    }
+
+    private void Update()
     {
         // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed at.
         RaycastHit hit;
@@ -39,30 +59,81 @@ public class CameraPointer : MonoBehaviour
         {
             GameObject hitObject = hit.transform.gameObject;
 
-            hitObject.TryGetComponent(out InteractableController interactable);
-
-            // Interactable GameObject detected in front of the camera.
-            if (gazedObject != interactable)
+            if (hitObject.TryGetComponent(out InteractableController interactable))
             {
-                // New GameObject.
-                gazedObject?.OnGazeExit();
-                gazedObject = interactable;
-                gazedObject.OnGazeEnter();
-                Debug.Log($"New Gazed Object: {gazedObject.gameObject.name}");
+                // Interactable GameObject detected in front of the camera.
+                if (gazedObject != interactable)
+                {
+                    // New GameObject.
+                    gazedObject?.OnGazeExit();
+                    gazedObject = interactable;
+                    gazedObject.OnGazeEnter();
+                    DisplayTeleportPointer(false);
+                    currentAction = ActionType.Interaction;
+                    Debug.Log($"New Gazed Object: {gazedObject.gameObject.name}");
+                }
+            }
+            else if (hitObject.CompareTag("TeleportFloor"))
+            {
+                // Ground detected
+                RemoveGazedObject();
+                pointerPosition = hit.point;
+                DisplayTeleportPointer(true);
+                currentAction = ActionType.Teleport;
+                Debug.Log("Ground detected");
             }
         }
         else
         {
             // No GameObject detected in front of the camera.
-            gazedObject?.OnGazeExit();
-            gazedObject = null;            
+            RemoveGazedObject();
+            DisplayTeleportPointer(false);
+            currentAction = ActionType.None;
         }
 
         // Checks for screen touches.
         if (Api.IsTriggerPressed)
         {
-            gazedObject?.OnInteraction();
+            switch (currentAction)
+            {
+                case ActionType.None:
+                    break;
+                case ActionType.Teleport:
+                    TeleportPlayer();
+                    break;
+                case ActionType.Interaction:
+                    gazedObject?.OnInteraction();
+                    break;
+                default:
+                    break;
+            }
+            
             Debug.Log("Trigger Pressed");
         }
+    }
+
+    private void RemoveGazedObject()
+    {
+        gazedObject?.OnGazeExit();
+        gazedObject = null;
+    }
+
+
+    private void DisplayTeleportPointer(bool hit)
+    {
+        if (hit)
+        {
+            pointer.SetActive(true);
+            pointer.transform.position = pointerPosition;
+        }
+        else
+        {
+            pointer.SetActive(false);
+        }
+    }
+
+    private void TeleportPlayer()
+    {
+        player.position = new Vector3(pointerPosition.x, player.position.y, pointerPosition.z);
     }
 }

@@ -11,12 +11,12 @@ public class KeypadController : MonoBehaviour
     private TextMeshPro inputCodeUI;
 
     ///<summary>Code that is the answer to the puzzle.</summary> 
-    private string answerCode = string.Empty;
+    private string answerCode = "4236";
 
     ///<summary>Code that the player inputs into the keypad.</summary>
     private string inputCode = string.Empty;
 
-    //flag to prevent interaction with the keypad after puzzle complete
+    ///<summary>Flag to prevent interaction with the keypad after puzzle complete</summary>
     private bool puzzleClear = false;
 
     private DoorController doorController;
@@ -72,6 +72,8 @@ public class KeypadController : MonoBehaviour
         //correct
         if (answerCode == inputCode)
         {
+            puzzleClear = true;
+
             Debug.Log("Correct!");
 
             if (doorController != null)

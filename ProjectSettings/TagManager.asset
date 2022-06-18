@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraPivot
   - KeypadDoor
+  - TeleportFloor
   layers:
   - Default
   - TransparentFX
