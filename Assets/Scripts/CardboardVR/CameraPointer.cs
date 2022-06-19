@@ -24,7 +24,8 @@ enum ActionType
 {
     None,
     Teleport,
-    Interaction
+    Interaction,
+    Drop
 }
 
 public class CameraPointer : MonoBehaviour
@@ -42,6 +43,9 @@ public class CameraPointer : MonoBehaviour
 
     /// <summary>Game object that is being gazed.</summary>
     private InteractableController gazedObject = null;
+
+    /// <summary>Planet disc that is being held.</summary>
+    private PlanetController currentHoldingPlanet;
 
 
     private void Awake()
@@ -65,12 +69,23 @@ public class CameraPointer : MonoBehaviour
                 if (gazedObject != interactable)
                 {
                     // New GameObject.
-                    gazedObject?.OnGazeExit();
-                    gazedObject = interactable;
-                    gazedObject.OnGazeEnter();
-                    DisplayTeleportPointer(false);
-                    currentAction = ActionType.Interaction;
-                    Debug.Log($"New Gazed Object: {gazedObject.gameObject.name}");
+
+                    //if player is holding a planet and is gazing at another planet don't let the player grab that object
+                    //or if player is not holding a planet and is gazing at a slot don't let the player interact with the slot
+                    if (GazingExceptions(interactable))
+                    {
+                        RemoveGazedObject();
+                    }
+                    else
+                    {
+                        gazedObject?.OnGazeExit();
+                        gazedObject = interactable;
+                        gazedObject.OnGazeEnter();
+                        DisplayTeleportPointer(false);
+                        currentAction = ActionType.Interaction;
+                        Debug.Log($"New Gazed Object: {gazedObject.gameObject.name}");
+                    }
+                    
                 }
             }
             else if (hitObject.CompareTag("TeleportFloor"))
@@ -88,7 +103,16 @@ public class CameraPointer : MonoBehaviour
             // No GameObject detected in front of the camera.
             RemoveGazedObject();
             DisplayTeleportPointer(false);
-            currentAction = ActionType.None;
+
+            //if player is holding a planet allow the player to drop the object
+            if (currentHoldingPlanet != null)
+            {
+                currentAction = ActionType.Drop;
+            }
+            else
+            {
+                currentAction = ActionType.None;
+            }
         }
 
         // Checks for screen touches.
@@ -104,6 +128,9 @@ public class CameraPointer : MonoBehaviour
                 case ActionType.Interaction:
                     gazedObject?.OnInteraction();
                     break;
+                case ActionType.Drop:
+                    StopHoldingPlanet();
+                    break;
                 default:
                     break;
             }
@@ -111,6 +138,26 @@ public class CameraPointer : MonoBehaviour
             Debug.Log("Trigger Pressed");
         }
     }
+
+
+    private bool GazingExceptions(InteractableController interactable)
+    {
+        //player is looking at a planet but is holding one
+        if (interactable.InteractableType == InteractableType.Planet && currentHoldingPlanet != null)
+        {
+            return false;
+        }
+        //player is looking at a planet slot but is not holding a planet
+        else if (interactable.InteractableType == InteractableType.PlanetSlot && currentHoldingPlanet == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
 
     private void RemoveGazedObject()
     {
@@ -135,5 +182,11 @@ public class CameraPointer : MonoBehaviour
     private void TeleportPlayer()
     {
         player.position = new Vector3(pointerPosition.x, player.position.y, pointerPosition.z);
+    }
+
+    public void StopHoldingPlanet()
+    {
+        currentHoldingPlanet?.DropPlanet();
+        currentHoldingPlanet = null;
     }
 }

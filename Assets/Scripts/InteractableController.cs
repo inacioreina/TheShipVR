@@ -6,10 +6,11 @@ public enum InteractableType
 {
     KeypadButton,
     Planet,
-    PlanetButton,
+    PlanetSlot,
     Enemy
 }
 
+[RequireComponent(typeof(BoxCollider))]
 public class InteractableController : MonoBehaviour
 {
     [SerializeField]
@@ -23,6 +24,15 @@ public class InteractableController : MonoBehaviour
     private MeshRenderer meshRenderer;
 
 
+    public InteractableType InteractableType
+    {
+        get
+        {
+            return interactableType;
+        }
+    }
+
+
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -32,26 +42,55 @@ public class InteractableController : MonoBehaviour
 
     public void OnGazeEnter()
     {
-        meshRenderer.material = selectedMaterial;
+        switch (interactableType)
+        {
+            case InteractableType.PlanetSlot:
+                meshRenderer.materials[0] = selectedMaterial;
+                meshRenderer.materials[1] = selectedMaterial;
+                break;
+            default:
+                meshRenderer.material = selectedMaterial;
+                break;
+        }
     }
 
     public void OnGazeExit()
     {
-        meshRenderer.material = unselectedMaterial;
+        switch (interactableType)
+        {
+            case InteractableType.PlanetSlot:
+                meshRenderer.materials[0] = unselectedMaterial;
+                meshRenderer.materials[1] = unselectedMaterial;
+                break;
+            default:
+                meshRenderer.material = unselectedMaterial;
+                break;
+        }
     }
 
-    public void OnInteraction()
+    public void OnInteraction(PlanetController planet = null)
     {
         switch (interactableType)
         {
             case InteractableType.KeypadButton:
                 gameObject.GetComponent<KeyButtonController>().ButtonPress();
                 break;
-            case InteractableType.Planet:
-                //write here the reference to the function that will interact with planet
+            case InteractableType.Planet: //grab planet
+                if (planet == null)
+                    planet.GrabPlanet();
                 break;
-            case InteractableType.PlanetButton:
-                //write here the reference to the function that will interact with planet button
+            case InteractableType.PlanetSlot: //insert planet in slot if it matches
+                if (planet != null)
+                {
+                    gameObject.TryGetComponent(out PlanetSlotController planetSlot);
+
+                    if (planetSlot.CompareDiscSlot(planet))
+                    {
+                        StartCoroutine(planetSlot.InsertPlanet(planet));
+                    }
+                }
+                    
+                
                 break;
             case InteractableType.Enemy:
                 //write here the reference to the function that will interact with enemy
