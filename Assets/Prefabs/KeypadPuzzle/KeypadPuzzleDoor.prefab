@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 9222008161463765577}
   - component: {fileID: 8408492343945941232}
   m_Layer: 0
-  m_Name: Door
+  m_Name: KeypadPuzzleDoor
   m_TagString: KeypadDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,3 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28270fbc9a9e0b64bb62fd8b705127ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openFinalPosition: 2.09
+  closeFinalPosition: 0
+  openCloseDuration: 2.5

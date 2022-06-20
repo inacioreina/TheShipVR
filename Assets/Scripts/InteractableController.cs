@@ -6,8 +6,7 @@ public enum InteractableType
 {
     KeypadButton,
     Planet,
-    PlanetSlot,
-    Enemy
+    PlanetSlot
 }
 
 [RequireComponent(typeof(BoxCollider))]
@@ -45,8 +44,13 @@ public class InteractableController : MonoBehaviour
         switch (interactableType)
         {
             case InteractableType.PlanetSlot:
-                meshRenderer.materials[0] = selectedMaterial;
-                meshRenderer.materials[1] = selectedMaterial;
+
+                Material[] mats = meshRenderer.materials;
+
+                mats[0] = selectedMaterial;
+                mats[1] = selectedMaterial;
+
+                meshRenderer.materials = mats;
                 break;
             default:
                 meshRenderer.material = selectedMaterial;
@@ -59,8 +63,12 @@ public class InteractableController : MonoBehaviour
         switch (interactableType)
         {
             case InteractableType.PlanetSlot:
-                meshRenderer.materials[0] = unselectedMaterial;
-                meshRenderer.materials[1] = unselectedMaterial;
+                Material[] mats = meshRenderer.materials;
+
+                mats[0] = unselectedMaterial;
+                mats[1] = unselectedMaterial;
+
+                meshRenderer.materials = mats;
                 break;
             default:
                 meshRenderer.material = unselectedMaterial;
@@ -68,32 +76,24 @@ public class InteractableController : MonoBehaviour
         }
     }
 
-    public void OnInteraction(PlanetController planet = null)
+    public void OnInteraction(PlanetController holdingPlanet = null)
     {
         switch (interactableType)
         {
             case InteractableType.KeypadButton:
                 gameObject.GetComponent<KeyButtonController>().ButtonPress();
                 break;
-            case InteractableType.Planet: //grab planet
-                if (planet == null)
-                    planet.GrabPlanet();
-                break;
             case InteractableType.PlanetSlot: //insert planet in slot if it matches
-                if (planet != null)
+                if (holdingPlanet != null)
                 {
                     gameObject.TryGetComponent(out PlanetSlotController planetSlot);
 
-                    if (planetSlot.CompareDiscSlot(planet))
+                    if (planetSlot.CompareDiscSlot(holdingPlanet))
                     {
-                        StartCoroutine(planetSlot.InsertPlanet(planet));
+                        Camera.main.GetComponent<CameraPointer>().InsertPlanet();
+                        StartCoroutine(planetSlot.InsertPlanet(holdingPlanet));
                     }
                 }
-                    
-                
-                break;
-            case InteractableType.Enemy:
-                //write here the reference to the function that will interact with enemy
                 break;
             default:
                 break;

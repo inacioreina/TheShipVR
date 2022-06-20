@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/PlanetsPuzzle.unity
+    guid: 14acb968101d54f49b009a196c08b12e
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3c60061540bfb1841ba7e1b0b26b1804,
       type: 2}

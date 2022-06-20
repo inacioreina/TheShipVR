@@ -25,6 +25,7 @@ enum ActionType
     None,
     Teleport,
     Interaction,
+    Grab,
     Drop
 }
 
@@ -45,7 +46,7 @@ public class CameraPointer : MonoBehaviour
     private InteractableController gazedObject = null;
 
     /// <summary>Planet disc that is being held.</summary>
-    private PlanetController currentHoldingPlanet;
+    private PlanetController currentHoldingPlanet = null;
 
 
     private void Awake()
@@ -82,7 +83,18 @@ public class CameraPointer : MonoBehaviour
                         gazedObject = interactable;
                         gazedObject.OnGazeEnter();
                         DisplayTeleportPointer(false);
-                        currentAction = ActionType.Interaction;
+
+                        switch (interactable.InteractableType)
+                        {
+                            case InteractableType.Planet:
+                                currentAction = ActionType.Grab;
+                                break;
+                            default:
+                                currentAction = ActionType.Interaction;
+                                break;
+                        }
+
+                        
                         Debug.Log($"New Gazed Object: {gazedObject.gameObject.name}");
                     }
                     
@@ -96,6 +108,10 @@ public class CameraPointer : MonoBehaviour
                 DisplayTeleportPointer(true);
                 currentAction = ActionType.Teleport;
                 Debug.Log("Ground detected");
+            }
+            else
+            {
+
             }
         }
         else
@@ -126,7 +142,10 @@ public class CameraPointer : MonoBehaviour
                     TeleportPlayer();
                     break;
                 case ActionType.Interaction:
-                    gazedObject?.OnInteraction();
+                    gazedObject?.OnInteraction(currentHoldingPlanet);
+                    break;
+                case ActionType.Grab:
+                    StartHoldingPlanet(gazedObject);
                     break;
                 case ActionType.Drop:
                     StopHoldingPlanet();
@@ -145,16 +164,16 @@ public class CameraPointer : MonoBehaviour
         //player is looking at a planet but is holding one
         if (interactable.InteractableType == InteractableType.Planet && currentHoldingPlanet != null)
         {
-            return false;
+            return true;
         }
         //player is looking at a planet slot but is not holding a planet
         else if (interactable.InteractableType == InteractableType.PlanetSlot && currentHoldingPlanet == null)
         {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 
@@ -184,9 +203,20 @@ public class CameraPointer : MonoBehaviour
         player.position = new Vector3(pointerPosition.x, player.position.y, pointerPosition.z);
     }
 
+    public void StartHoldingPlanet(InteractableController planet)
+    {
+        currentHoldingPlanet = planet.gameObject.GetComponent<PlanetController>();
+        currentHoldingPlanet?.GrabPlanet();
+    }
+
     public void StopHoldingPlanet()
     {
         currentHoldingPlanet?.DropPlanet();
+        currentHoldingPlanet = null;
+    }
+
+    public void InsertPlanet()
+    {
         currentHoldingPlanet = null;
     }
 }

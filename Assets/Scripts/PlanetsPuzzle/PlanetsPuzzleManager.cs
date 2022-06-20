@@ -60,7 +60,7 @@ public class PlanetsPuzzleManager : MonoBehaviour
 
         if (planetsPuzzleComplete)
         {
-            //open door
+            GameObject.FindGameObjectWithTag("PlanetsDoor").GetComponent<DoorController>().OpenDoor();
         }
     }
 }

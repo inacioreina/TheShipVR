@@ -13,6 +13,8 @@ public class PlanetController : MonoBehaviour
 
     private BoxCollider planetCollider;
 
+    private InteractableController interactable;
+
     
 
     public Planet PlanetType
@@ -26,19 +28,23 @@ public class PlanetController : MonoBehaviour
     private void Start()
     {
         planetRigidbody = GetComponent<Rigidbody>();
-        planetCollider = GetComponent<BoxCollider>();        
+        planetCollider = GetComponent<BoxCollider>();
+        interactable = GetComponent<InteractableController>();
     }
 
 
     public void GrabPlanet()
     {
-        transform.SetParent(Camera.main.transform);
-
+        transform.SetParent(Camera.main.transform, false);
+        EnableDisableRigidbody(false);
+        transform.localPosition = new Vector3(0.3f, -0.1f, 0.5f);
+        transform.localRotation = Quaternion.Euler(90, 0, 0);
     }
 
     public void DropPlanet()
     {
-        transform.SetParent(null);
+        transform.SetParent(null, true);
+        transform.localRotation = Quaternion.identity;
         EnableDisableRigidbody(true);
     }
 
@@ -47,35 +53,5 @@ public class PlanetController : MonoBehaviour
         planetRigidbody.isKinematic = !enableRigidbody;
         planetRigidbody.detectCollisions = enableRigidbody;
         planetCollider.enabled = enableRigidbody;
-    }
-
-
-    public IEnumerator InsertPlanetMotion()
-    {
-        float time = 0f;
-
-        float duration = 2f;
-
-        Vector3 initialPosition = transform.localPosition;
-
-        Quaternion initialRotation = transform.localRotation;
-
-        transform.SetParent(transform);
-
-        while (time < duration)
-        {
-            transform.localPosition = Vector3.Lerp(initialPosition, Vector3.zero, time / duration);
-
-            transform.localRotation = Quaternion.Lerp(initialRotation, Quaternion.identity, Mathf.Clamp01(time * 2 / duration));
-
-            time += Time.deltaTime;
-
-            yield return null;
-        }
-
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-
-        yield return new WaitForSeconds(1f);
     }
 }
