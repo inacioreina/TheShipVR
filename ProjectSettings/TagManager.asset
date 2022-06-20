@@ -7,6 +7,7 @@ TagManager:
   - CameraPivot
   - KeypadDoor
   - TeleportFloor
+  - PlanetsDoor
   layers:
   - Default
   - TransparentFX

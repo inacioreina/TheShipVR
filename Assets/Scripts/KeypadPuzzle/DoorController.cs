@@ -6,6 +6,15 @@ public class DoorController : MonoBehaviour
 {
     private Transform door;
 
+    [SerializeField]
+    private float openFinalPosition;
+
+    [SerializeField]
+    private float closeFinalPosition;
+
+    [SerializeField]
+    private float openCloseDuration;
+
     private void Start()
     {
         door = transform.GetChild(1);
@@ -14,21 +23,21 @@ public class DoorController : MonoBehaviour
 
     public void OpenDoor()
     {
-        StartCoroutine(MoveDoor(2.09f, 2.5f));
+        StartCoroutine(MoveDoor(openFinalPosition, openCloseDuration));
     }
 
     public void CloseDoor()
     {
-        StartCoroutine(MoveDoor(2.09f, 2.5f));
+        StartCoroutine(MoveDoor(closeFinalPosition, openCloseDuration));
     }
 
     IEnumerator MoveDoor(float finalY, float duration)
     {
         float time = 0f;
 
-        float doorY = door.position.y;
+        float initialY = door.position.y;
 
-        float initialY = doorY;
+        float doorY;
 
         while (time < duration)
         {
@@ -40,5 +49,9 @@ public class DoorController : MonoBehaviour
 
             time += Time.deltaTime;
         }
+
+        doorY = finalY;
+
+        door.position = new Vector3(door.position.x, doorY, door.position.z);
     }
 }
