@@ -111,24 +111,12 @@ public class CameraPointer : MonoBehaviour
             }
             else
             {
-
+                LookingAtNonInteractable();
             }
         }
         else
         {
-            // No GameObject detected in front of the camera.
-            RemoveGazedObject();
-            DisplayTeleportPointer(false);
-
-            //if player is holding a planet allow the player to drop the object
-            if (currentHoldingPlanet != null)
-            {
-                currentAction = ActionType.Drop;
-            }
-            else
-            {
-                currentAction = ActionType.None;
-            }
+            LookingAtNonInteractable();
         }
 
         // Checks for screen touches.
@@ -174,6 +162,23 @@ public class CameraPointer : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void LookingAtNonInteractable()
+    {
+        // No GameObject detected in front of the camera.
+        RemoveGazedObject();
+        DisplayTeleportPointer(false);
+
+        //if player is holding a planet allow the player to drop the object
+        if (currentHoldingPlanet != null)
+        {
+            currentAction = ActionType.Drop;
+        }
+        else
+        {
+            currentAction = ActionType.None;
         }
     }
 
