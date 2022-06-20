@@ -21,13 +21,16 @@ EditorUserSettings:
       value: 5205010757545d0e09590e2147770912474e1b287a7072617d7a4b6be0e66d6e
       flags: 0
     RecentlyUsedSceneGuid-5:
-      value: 025457075c065e020f080f7a48260b441715197b2a79236075714930bbb5606b
-      flags: 0
-    RecentlyUsedSceneGuid-6:
       value: 5353525607045f02590a5a7a16770644444f19792878246075281930bbe5376d
       flags: 0
-    RecentlyUsedSceneGuid-7:
+    RecentlyUsedSceneGuid-6:
       value: 52055505070c5f035c5e5d26457759444f15487a752977697b2a4d6be0b1663d
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 025457075c065e020f080f7a48260b441715197b2a79236075714930bbb5606b
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 5555015350055a0a095b5d27442609444f4f1d287c2a2461752b4531b5b5363a
       flags: 0
     UnityRemoteCompression:
       value: 337f73

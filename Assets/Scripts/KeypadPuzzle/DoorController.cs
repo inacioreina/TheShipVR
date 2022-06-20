@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(BoxCollider))]
 public class DoorController : MonoBehaviour
 {
     private Transform door;
+
+    private AudioSource doorOpenAudio;
+
+    private BoxCollider doorCollider;
 
     [SerializeField]
     private float openFinalPosition;
@@ -18,16 +24,24 @@ public class DoorController : MonoBehaviour
     private void Start()
     {
         door = transform.GetChild(1);
+
+        doorOpenAudio = gameObject.GetComponent<AudioSource>();
+
+        doorCollider = gameObject.GetComponent<BoxCollider>();
     }
 
 
-    public void OpenDoor()
+    public IEnumerator OpenDoor()
     {
-        StartCoroutine(MoveDoor(openFinalPosition, openCloseDuration));
+        yield return StartCoroutine(MoveDoor(openFinalPosition, openCloseDuration));
+
+        doorCollider.enabled = false;
     }
 
     public void CloseDoor()
     {
+        doorCollider.enabled = true;
+
         StartCoroutine(MoveDoor(closeFinalPosition, openCloseDuration));
     }
 
@@ -38,6 +52,8 @@ public class DoorController : MonoBehaviour
         float initialY = door.position.y;
 
         float doorY;
+
+        doorOpenAudio.Play();
 
         while (time < duration)
         {

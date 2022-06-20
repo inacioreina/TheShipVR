@@ -6,7 +6,8 @@ public enum InteractableType
 {
     KeypadButton,
     Planet,
-    PlanetSlot
+    PlanetSlot,
+    Door
 }
 
 [RequireComponent(typeof(BoxCollider))]
@@ -45,12 +46,21 @@ public class InteractableController : MonoBehaviour
         {
             case InteractableType.PlanetSlot:
 
-                Material[] mats = meshRenderer.materials;
+                Material[] slotMats = meshRenderer.materials;
 
-                mats[0] = selectedMaterial;
-                mats[1] = selectedMaterial;
+                slotMats[0] = selectedMaterial;
+                slotMats[1] = selectedMaterial;
 
-                meshRenderer.materials = mats;
+                meshRenderer.materials = slotMats;
+                break;
+            case InteractableType.Door:
+                Material[] doorMats = meshRenderer.materials;
+
+                doorMats[0] = selectedMaterial;
+                doorMats[1] = selectedMaterial;
+                doorMats[1] = selectedMaterial;
+
+                meshRenderer.materials = doorMats;
                 break;
             default:
                 meshRenderer.material = selectedMaterial;
@@ -63,12 +73,21 @@ public class InteractableController : MonoBehaviour
         switch (interactableType)
         {
             case InteractableType.PlanetSlot:
-                Material[] mats = meshRenderer.materials;
+                Material[] slotMats = meshRenderer.materials;
 
-                mats[0] = unselectedMaterial;
-                mats[1] = unselectedMaterial;
+                slotMats[0] = unselectedMaterial;
+                slotMats[1] = unselectedMaterial;
 
-                meshRenderer.materials = mats;
+                meshRenderer.materials = slotMats;
+                break;
+            case InteractableType.Door:
+                Material[] doorMats = meshRenderer.materials;
+
+                doorMats[0] = unselectedMaterial;
+                doorMats[1] = unselectedMaterial;
+                doorMats[1] = unselectedMaterial;
+
+                meshRenderer.materials = doorMats;
                 break;
             default:
                 meshRenderer.material = unselectedMaterial;
@@ -94,6 +113,10 @@ public class InteractableController : MonoBehaviour
                         StartCoroutine(planetSlot.InsertPlanet(holdingPlanet));
                     }
                 }
+                break;
+            case InteractableType.Door:
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                StartCoroutine(transform.GetComponentInParent<DoorController>().OpenDoor());
                 break;
             default:
                 break;

@@ -43,7 +43,7 @@ public class PlanetSlotController : MonoBehaviour
     {
         float time = 0f;
 
-        float duration = 2f;
+        float duration = 1f;
 
         planet.transform.SetParent(transform, true);
 

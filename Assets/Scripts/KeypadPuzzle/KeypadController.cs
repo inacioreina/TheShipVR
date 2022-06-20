@@ -74,7 +74,7 @@ public class KeypadController : MonoBehaviour
 
             Debug.Log("Correct!");
 
-            GameObject.FindGameObjectWithTag("KeypadDoor").GetComponent<DoorController>().OpenDoor();
+            StartCoroutine(GameObject.FindGameObjectWithTag("KeypadDoor").GetComponent<DoorController>().OpenDoor());
         }
         else //incorrect
         {
