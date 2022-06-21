@@ -37,6 +37,8 @@ public class CameraPointer : MonoBehaviour
 
     private GameObject pointer;
 
+    private AudioSource footstepAudio;
+
     private ActionType currentAction = ActionType.None;
 
     /// <summary> Pointer to display teleport target. </summary>
@@ -54,6 +56,8 @@ public class CameraPointer : MonoBehaviour
         player = transform.parent;
 
         pointer = player.GetChild(1).gameObject;
+
+        footstepAudio = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -120,7 +124,7 @@ public class CameraPointer : MonoBehaviour
         }
 
         // Checks for screen touches.
-        if (Api.IsTriggerPressed)
+        if (Api.IsTriggerPressed || Input.GetMouseButtonDown(0))
         {
             switch (currentAction)
             {
@@ -206,6 +210,7 @@ public class CameraPointer : MonoBehaviour
     private void TeleportPlayer()
     {
         player.position = new Vector3(pointerPosition.x, player.position.y, pointerPosition.z);
+        footstepAudio.Play();
     }
 
     public void StartHoldingPlanet(InteractableController planet)

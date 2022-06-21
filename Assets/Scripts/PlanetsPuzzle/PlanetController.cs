@@ -15,6 +15,8 @@ public class PlanetController : MonoBehaviour
 
     private InteractableController interactable;
 
+    private MeshRenderer meshRenderer;
+
     
 
     public Planet PlanetType
@@ -25,11 +27,20 @@ public class PlanetController : MonoBehaviour
         }
     }
 
+    public MeshRenderer MeshRenderer
+    {
+        get
+        {
+            return meshRenderer;
+        }
+    }
+
     private void Start()
     {
         planetRigidbody = GetComponent<Rigidbody>();
         planetCollider = GetComponent<BoxCollider>();
         interactable = GetComponent<InteractableController>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
 
@@ -39,6 +50,7 @@ public class PlanetController : MonoBehaviour
         EnableDisableRigidbody(false);
         transform.localPosition = new Vector3(0.3f, -0.1f, 0.5f);
         transform.localRotation = Quaternion.Euler(90, 0, 0);
+        meshRenderer.enabled = false;
     }
 
     public void DropPlanet()

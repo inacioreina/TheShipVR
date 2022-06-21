@@ -49,7 +49,7 @@ public class DoorController : MonoBehaviour
     {
         float time = 0f;
 
-        float initialY = door.position.y;
+        float initialY = door.localPosition.y;
 
         float doorY;
 
@@ -59,7 +59,7 @@ public class DoorController : MonoBehaviour
         {
             doorY = Mathf.Lerp(initialY, finalY, time/duration);
 
-            door.position = new Vector3(door.position.x, doorY, door.position.z);
+            door.localPosition = new Vector3(door.localPosition.x, doorY, door.localPosition.z);
 
             yield return null;
 
@@ -68,6 +68,6 @@ public class DoorController : MonoBehaviour
 
         doorY = finalY;
 
-        door.position = new Vector3(door.position.x, doorY, door.position.z);
+        door.localPosition = new Vector3(door.localPosition.x, doorY, door.localPosition.z);
     }
 }

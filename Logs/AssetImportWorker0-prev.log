@@ -15,7 +15,7 @@ C:/Unity Projects/TheShipVR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51537
+57251
 Successfully changed project path to: C:/Unity Projects/TheShipVR
 C:/Unity Projects/TheShipVR
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Unity Projects/TheShipVR
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 1252.67 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 100.66 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.2f1 (d6360bedb9a0)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/Resources/UnitySubsystems
@@ -63,91 +63,91 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56484
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56920
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.014264 seconds.
+Registered in 0.010546 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 214.21 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 76.20 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.998 seconds
+- Completed reload, in  0.987 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2999ms)
-		BeginReloadAssembly (121ms)
+	ReloadAssembly (988ms)
+		BeginReloadAssembly (163ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (2686ms)
-			LoadAssemblies (118ms)
+		EndReloadAssembly (663ms)
+			LoadAssemblies (159ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (168ms)
+			SetupTypeCache (158ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (427ms)
-			SetupLoadedEditorAssemblies (1949ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (388ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (103ms)
+				InitializePlatformSupportModulesInManaged (95ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (214ms)
+				RefreshPlugins (76ms)
 				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (1450ms)
-				ProcessInitializeOnLoadMethodAttributes (180ms)
+				ProcessInitializeOnLoadAttributes (146ms)
+				ProcessInitializeOnLoadMethodAttributes (68ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.019670 seconds.
+Registered in 0.004841 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 102.28 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 88.23 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Package Manager log level set to [2]
 Mono: successfully reloaded assembly
-- Completed reload, in  8.440 seconds
+- Completed reload, in  1.829 seconds
 Domain Reload Profiling:
-	ReloadAssembly (8443ms)
-		BeginReloadAssembly (2794ms)
+	ReloadAssembly (1831ms)
+		BeginReloadAssembly (280ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (13ms)
+			DisableScriptedObjects (12ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (333ms)
-		EndReloadAssembly (5049ms)
-			LoadAssemblies (1276ms)
+			CreateAndSetChildDomain (132ms)
+		EndReloadAssembly (1369ms)
+			LoadAssemblies (112ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (434ms)
+			SetupTypeCache (327ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (134ms)
-			SetupLoadedEditorAssemblies (4202ms)
+			RebuildScriptCaches (136ms)
+			SetupLoadedEditorAssemblies (704ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (39ms)
+				InitializePlatformSupportModulesInManaged (25ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (102ms)
-				BeforeProcessingInitializeOnLoad (362ms)
-				ProcessInitializeOnLoadAttributes (1943ms)
-				ProcessInitializeOnLoadMethodAttributes (1687ms)
-				AfterProcessingInitializeOnLoad (67ms)
+				RefreshPlugins (88ms)
+				BeforeProcessingInitializeOnLoad (138ms)
+				ProcessInitializeOnLoadAttributes (280ms)
+				ProcessInitializeOnLoadMethodAttributes (156ms)
+				AfterProcessingInitializeOnLoad (15ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (8ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
-Refreshing native plugins compatible for Editor in 0.58 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2889 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 19 unused Assets / (434.0 KB). Loaded Objects now: 3364.
-Memory consumption went from 144.2 MB to 143.8 MB.
-Total: 552.518800 ms (FindLiveObjects: 546.383100 ms CreateObjectMapping: 0.168000 ms MarkObjects: 5.521500 ms  DeleteObjects: 0.445100 ms)
+Unloading 3277 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (486.1 KB). Loaded Objects now: 3752.
+Memory consumption went from 161.4 MB to 161.0 MB.
+Total: 7.418300 ms (FindLiveObjects: 0.725300 ms CreateObjectMapping: 0.254000 ms MarkObjects: 4.461600 ms  DeleteObjects: 1.976100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -161,37 +161,187 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 398578.880198 seconds.
-  path: Assets/Materials/Materials/41eeae26-09d4-4681-83f3-23c267744ca8.mat
-  artifactKey: Guid(6a94c4d8be8bd214b98f25f229416966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Materials/41eeae26-09d4-4681-83f3-23c267744ca8.mat using Guid(6a94c4d8be8bd214b98f25f229416966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '711ea8cb98c79a61fd55f63465c47bb4') in 2.416591 seconds 
+  Time since last request: 447099.253732 seconds.
+  path: Assets/icon.png
+  artifactKey: Guid(b13cb450bd037b54e8724e709801dae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/icon.png using Guid(b13cb450bd037b54e8724e709801dae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2cbd9e063de19b6592ce31229606297') in 0.134461 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Prefabs/untitled.fbx
-  artifactKey: Guid(68bb9efbc94d0744bb81c871e4518854) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/untitled.fbx using Guid(68bb9efbc94d0744bb81c871e4518854) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2346c1bf79a82af9852f70cf5d49a0bc') in 1.150100 seconds 
+  Time since last request: 15.428555 seconds.
+  path: Assets/Prefabs/End.prefab
+  artifactKey: Guid(66ffb53c245becf43994bb25898f780d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/End.prefab using Guid(66ffb53c245becf43994bb25898f780d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c294a80435df088c2ef9cb995cdb11ff') in 0.356818 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/Materials/41eeae26-09d4-4681-83f3-23c267744ca8.png
-  artifactKey: Guid(15e988205254fac48b94c0be4f8ebe36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/41eeae26-09d4-4681-83f3-23c267744ca8.png using Guid(15e988205254fac48b94c0be4f8ebe36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '719cab78a6d6cb1ed3afc65cd10c2a0f') in 1.549600 seconds 
+  Time since last request: 56.965783 seconds.
+  path: Assets/Prefabs/WindowColliders.prefab
+  artifactKey: Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WindowColliders.prefab using Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bb3988cf5bfd238aa332af72c0ed691') in 0.010472 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Materials/Materials
-  artifactKey: Guid(07de7088142433942864c92a88d13a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Materials using Guid(07de7088142433942864c92a88d13a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a54a719feb073c3efbcd2fa322b3b0cd') in 0.009962 seconds 
+  Time since last request: 1.374581 seconds.
+  path: Assets/Prefabs/WindowColliders.prefab
+  artifactKey: Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WindowColliders.prefab using Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c82c6b3d8d1537307159c2c8ac99f021') in 0.005477 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 1213.327107 seconds.
-  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-LightItalic.ttf
-  artifactKey: Guid(5e63515167650a541b309ba3bfd4db3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-LightItalic.ttf using Guid(5e63515167650a541b309ba3bfd4db3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad0bc5c0954057ddf0dc9f204e5208f6') in 0.047785 seconds 
+  Time since last request: 5.452178 seconds.
+  path: Assets/Prefabs/WindowColliders.prefab
+  artifactKey: Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WindowColliders.prefab using Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f6f4278451d25ce3d05458a85ba1396') in 0.007448 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.034252 seconds.
-  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-MediumItalic.ttf
-  artifactKey: Guid(d93c1bc57fdf1ac4dad1bf04fac05464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-MediumItalic.ttf using Guid(d93c1bc57fdf1ac4dad1bf04fac05464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '557b84d6925069f3e6d585a0edfee352') in 0.027652 seconds 
+  Time since last request: 2.411218 seconds.
+  path: Assets/Prefabs/WindowColliders.prefab
+  artifactKey: Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WindowColliders.prefab using Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70b1a55981ef2169c9b70cf9ed040944') in 0.008970 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.459907 seconds.
+  path: Assets/Prefabs/WindowColliders.prefab
+  artifactKey: Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WindowColliders.prefab using Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c29c54fd444c23bb6d7962389dd1497') in 0.006542 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 40.005977 seconds.
+  path: Assets/Prefabs/WindowColliders.prefab
+  artifactKey: Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WindowColliders.prefab using Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ac89e8c134317afde0c372737920284') in 0.006762 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 22.348464 seconds.
+  path: Assets/Prefabs/WindowColliders.prefab
+  artifactKey: Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WindowColliders.prefab using Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27b6d58e9bd4a1b600864c6ce340af49') in 0.007723 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.024153 seconds.
+  path: Assets/Prefabs/WindowColliders.prefab
+  artifactKey: Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/WindowColliders.prefab using Guid(139918d280d619042b8e3eca03b2fd6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc967362bb2bbf535c5058463dbfe9d3') in 0.008593 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 63.437738 seconds.
+  path: Assets/Prefabs/End.prefab
+  artifactKey: Guid(66ffb53c245becf43994bb25898f780d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/End.prefab using Guid(66ffb53c245becf43994bb25898f780d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0562a069fbd85cf97c110cdebf769cf0') in 0.051269 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 49.157238 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/aaaa.mat
+  artifactKey: Guid(a0b04909513731948af0da3600a93804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/aaaa.mat using Guid(a0b04909513731948af0da3600a93804) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a73b321d7dbbc268532e420f9989105c') in 0.053936 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/istockphoto-1083270968-612x612.jpg
+  artifactKey: Guid(982990db3772764468276a47df538d16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/istockphoto-1083270968-612x612.jpg using Guid(982990db3772764468276a47df538d16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d7384ee5de28fdab81ba98d9f734473') in 0.038005 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.605826 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Earth Disc.prefab
+  artifactKey: Guid(6869d6ab814fe9b4d9a83c0ee38b87d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Earth Disc.prefab using Guid(6869d6ab814fe9b4d9a83c0ee38b87d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8994021dd46d99b01092de2d895edf8f') in 0.393632 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Venus Disc.prefab
+  artifactKey: Guid(0212da73579979449b06522a73bde3c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Venus Disc.prefab using Guid(0212da73579979449b06522a73bde3c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50a1ebe25130b80e981fafad873e6690') in 0.324476 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Uranus Disc.prefab
+  artifactKey: Guid(316b4330a689f574198e2b97223588a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Uranus Disc.prefab using Guid(316b4330a689f574198e2b97223588a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cba0a6a102130313743192fbad121212') in 0.321723 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Saturn Disc.prefab
+  artifactKey: Guid(ee717834651dd26449fffed60d19c8c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Saturn Disc.prefab using Guid(ee717834651dd26449fffed60d19c8c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dcf4915303731b8b2e48a23997c22ab') in 0.324606 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Jupiter Disc.prefab
+  artifactKey: Guid(633f2cd34f23aa14e9cb238b5cb36387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Jupiter Disc.prefab using Guid(633f2cd34f23aa14e9cb238b5cb36387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f151d8cdb3217935548e5fccd70cfe07') in 0.292557 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Neptune Disc.prefab
+  artifactKey: Guid(afdb97574083e254e809e1884aed400e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Neptune Disc.prefab using Guid(afdb97574083e254e809e1884aed400e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e78a1dc8a3535f5e2112367f3f453179') in 0.293828 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Mars Disc.prefab
+  artifactKey: Guid(25481197c88ad3642b3adb02828240f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Mars Disc.prefab using Guid(25481197c88ad3642b3adb02828240f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2ed47afbd1e1a549bf76af980748840') in 0.308641 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Mercury Disc.prefab
+  artifactKey: Guid(8b6ae14807923cd42a5588af140a2d12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Mercury Disc.prefab using Guid(8b6ae14807923cd42a5588af140a2d12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c5fab390ea8787996150c80fb116da3') in 0.296235 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Sun Disc.prefab
+  artifactKey: Guid(b057351e8b4195a4b8d3e3fcc4d59d52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Sun Disc.prefab using Guid(b057351e8b4195a4b8d3e3fcc4d59d52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57ab92e016802f66785e6067bceebeb4') in 0.300190 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 200.688704 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Uranus Disc.prefab
+  artifactKey: Guid(316b4330a689f574198e2b97223588a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Uranus Disc.prefab using Guid(316b4330a689f574198e2b97223588a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a610faf1f3f8082c84b1a7ef0bbefbd') in 0.321666 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.506151 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Venus Disc.prefab
+  artifactKey: Guid(0212da73579979449b06522a73bde3c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Venus Disc.prefab using Guid(0212da73579979449b06522a73bde3c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b2618bd25c6adee29a27d32ab8693c6') in 0.303267 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.821467 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Sun Disc.prefab
+  artifactKey: Guid(b057351e8b4195a4b8d3e3fcc4d59d52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Sun Disc.prefab using Guid(b057351e8b4195a4b8d3e3fcc4d59d52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b958be7b53e963ee04ead1c1a73d0747') in 0.330377 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.496392 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Mars Disc.prefab
+  artifactKey: Guid(25481197c88ad3642b3adb02828240f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Mars Disc.prefab using Guid(25481197c88ad3642b3adb02828240f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96c3ca2af668ac102e9832e04b5de257') in 0.330186 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 53.981998 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Earth Disc.prefab
+  artifactKey: Guid(6869d6ab814fe9b4d9a83c0ee38b87d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Earth Disc.prefab using Guid(6869d6ab814fe9b4d9a83c0ee38b87d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4913bbead33c77c4e3833bd9c935f451') in 0.314180 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000069 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Jupiter Disc.prefab
+  artifactKey: Guid(633f2cd34f23aa14e9cb238b5cb36387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Jupiter Disc.prefab using Guid(633f2cd34f23aa14e9cb238b5cb36387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be4a072d082fd68b72d47bc5178aef75') in 0.311526 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Mercury Disc.prefab
+  artifactKey: Guid(8b6ae14807923cd42a5588af140a2d12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Mercury Disc.prefab using Guid(8b6ae14807923cd42a5588af140a2d12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f7fb1e777b5007ca5aa082313141808') in 0.298003 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.585025 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Saturn Disc.prefab
+  artifactKey: Guid(ee717834651dd26449fffed60d19c8c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Saturn Disc.prefab using Guid(ee717834651dd26449fffed60d19c8c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c13ebb4484222a94d16cd1dd1aec98dd') in 0.318854 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 38.563892 seconds.
+  path: Assets/Prefabs/PlanetsPuzzle/Planet Discs/Neptune Disc.prefab
+  artifactKey: Guid(afdb97574083e254e809e1884aed400e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlanetsPuzzle/Planet Discs/Neptune Disc.prefab using Guid(afdb97574083e254e809e1884aed400e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a42fa89c2d4538a773abe678cbf1bab7') in 0.295567 seconds 

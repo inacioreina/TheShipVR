@@ -47,6 +47,8 @@ public class PlanetSlotController : MonoBehaviour
 
         planet.transform.SetParent(transform, true);
 
+        planet.MeshRenderer.enabled = true;
+
         Vector3 initialPosition = planet.transform.localPosition;
 
         Quaternion initialRotation = planet.transform.localRotation;
